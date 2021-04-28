@@ -6,6 +6,10 @@ SELECT * FROM `ospiti` WHERE `date_of_birth`> '1988-12-31'
 4) Seleziona tutti gli ospiti il cui nome inizia con la D
 SELECT * FROM `ospiti` WHERE `name` LIKE 'D%'
 5) Calcola il totale degli ordini accepted
+SELECT SUM(`price`) FROM `pagamenti` WHERE `status` = 'accepted'
 6) Qual è il prezzo massimo pagato?
+SELECT MAX(`price`) FROM `pagamenti` WHERE `status` = 'accepted'
 7) Seleziona gli ospiti riconosciuti con patente e nati nel 1975
+SELECT * FROM `ospiti` WHERE `date_of_birth` LIKE '1975-%' AND `document_type` LIKE '%river%'
 8) Quanti posti letto ha l’hotel in totale?
+SELECT SUM(`beds`) FROM `stanze`
