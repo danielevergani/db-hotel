@@ -10,7 +10,10 @@ SELECT COUNT(`stanza_id`) AS 'numero_prenotazioni', `stanza_id` FROM `prenotazio
 
 
 4) Fai una analisi per vedere se ci sono ore in cui le prenotazioni sono più frequenti
+SELECT `id` AS 'numero_prenotaz', HOUR(`created_at`) AS 'orario_prenotazione' FROM `prenotazioni` GROUP BY HOUR(`created_at`) ORDER BY `numero_prenotaz` DESC
+
 5) Quante prenotazioni ha fatto l’ospite che ha fatto più prenotazioni?
+SELECT COUNT(`prenotazione_id`) AS 'numero_prenotazioni', `ospite_id` FROM `prenotazioni_has_ospiti` GROUP BY `ospite_id` ORDER BY `numero_prenotazioni` DESC
 
 JOIN
 1) Come si chiamano gli ospiti che hanno fatto più di due prenotazioni?
