@@ -17,6 +17,7 @@ SELECT COUNT(`prenotazione_id`) AS 'numero_prenotazioni', `ospite_id` FROM `pren
 
 JOIN
 1) Come si chiamano gli ospiti che hanno fatto più di due prenotazioni?
+
 2) Stampare tutti gli ospiti per ogni prenotazione
 SELECT `ospiti`.`id` FROM `ospiti` INNER JOIN `prenotazioni_has_ospiti` ON `ospiti`.`id` = `prenotazioni_has_ospiti`.`ospite_id`
 
@@ -30,4 +31,5 @@ SELECT `pagamenti`.`price` FROM `stanze` INNER JOIN `prenotazioni` ON `stanze`.`
 SELECT `paganti`.`name`, `paganti`.`lastname`, `paganti`.`address` FROM `ospiti` INNER JOIN `prenotazioni_has_ospiti` ON `ospiti`.`id` = `prenotazioni_has_ospiti`.`ospite_id` INNER JOIN `paganti` ON `ospiti`.`id` = `paganti`.`ospite_id` WHERE `prenotazioni_has_ospiti`.`prenotazione_id` = 7
 
 6) Le stanze sono state tutte prenotate almeno una volta? (Visualizzare le stanze non ancora prenotate) 
+SELECT `stanze`.`room_number` FROM `stanze` LEFT JOIN `prenotazioni` ON `stanze`.`id` = `prenotazioni`.`stanza_id` WHERE `prenotazioni`.`stanza_id` IS NULL
 
